@@ -1,0 +1,4 @@
+/* Custom class to add left padding to the container */
+.container-custom-padding {
+    padding-left: 15px; /* Adjust the desired left padding size as needed */
+}
