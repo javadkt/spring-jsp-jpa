@@ -1,14 +1,16 @@
 package org.example.model;
 
-import javax.persistence.*;
-
 import lombok.Data;
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 @Data
 @ToString
-@Entity
-public class Employee {
+public class Manager {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,5 @@ public class Employee {
     private String dob;
     private String department;
     private Double salary;
-
-    private String manager;
 
 }

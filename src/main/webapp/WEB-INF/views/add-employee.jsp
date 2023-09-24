@@ -16,17 +16,16 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="name">Name</label> <input type="text"
-                                                          class="form-control" id="name" name="name"
-                                                          placeholder="Enter Name">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName"
+                           placeholder="Enter First Name" required>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="designation">Designation</label> <input type="text"
-                                                                        class="form-control" id="designation"
-                                                                        name="designation"
-                                                                        placeholder="Enter Designation">
+                    <label for="lastName">Last Name</label> <!-- Added Second Name field -->
+                    <input type="text" class="form-control" id="lastName" name="lastName"
+                           placeholder="Enter Last Name">
                 </div>
             </div>
         </div>
@@ -34,16 +33,19 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="department">Department</label> <input
-                        type="text" class="form-control" id="department"
-                        name="department" placeholder="Enter department">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" class="form-control" id="dateOfBirth" name="dob">
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="salary">Salary</label> <input type="number"
-                                                              class="form-control" id="salary" name="salary"
-                                                              placeholder="Enter Salary">
+                    <label for="department">Department</label>
+                    <select class="form-control" id="department" name="department">
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="IT">IT</option>
+                        <!-- Add more department options as needed -->
+                    </select>
                 </div>
             </div>
         </div>
@@ -51,15 +53,38 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="address">Address</label>
-                    <textarea class="form-control" id="address" name="address"
-                              rows="5" placeholder="Enter Address"> </textarea>
+                    <label for="salary">Salary</label>
+                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary(AED)">
                 </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label for="manager">Manager</label>
+                    <select class="form-control" id="manager" name="manager">
+                        <option value="">Select</option> <!-- Add an empty default option -->
+                        <c:forEach var="manager" items="${managers}">
+                            <option value="${manager.id}">
+                                    ${manager.id} - ${manager.firstName} ${manager.lastName}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
+
             </div>
         </div>
 
-        <a href="${pageContext.request.contextPath}/"
-           class="btn btn-warning"> Back </a>
+        <%--     <div class="row">
+                 <div class="col">
+                     <div class="form-group">
+                         <label for="address">Address</label>
+                         <textarea class="form-control" id="address" name="address" rows="5"
+                                   placeholder="Enter Address"></textarea>
+                     </div>
+                 </div>
+             </div>--%>
+
+        <a href="${pageContext.request.contextPath}/" class="btn btn-warning">Back</a>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 

@@ -3,6 +3,7 @@ package org.example.controller;
 import org.example.model.Employee;
 import org.example.service.EmployeeServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,15 +18,15 @@ public class EmployeeController {
 
     //lode add employee form
     @GetMapping("addEmployee")
-    public String addEmp() {
-
+    public String addEmp(Model m) {
+        m.addAttribute("managers", employeeServices.getAllEmp());
         return "addEmployee";
 
     }
 
 
     //save employee form
-    @PostMapping("/insertEmployee")
+    @PostMapping(value = "/insertEmployee")
     public String insertEmployee(@ModelAttribute("insertEmployee") Employee emp) {
 
         employeeServices.addEmp(emp);
