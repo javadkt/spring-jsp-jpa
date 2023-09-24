@@ -1,16 +1,31 @@
-<!-- tiles.xml -->
+<?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE tiles-definitions PUBLIC
-        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
-        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-    <!-- Common layout definition -->
-    <definition name="common.layout" template="/WEB-INF/views/template.jsp">
-        <put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
-        <!-- Add attribute definitions for menu and footer if needed -->
+
+    <definition name="baseLayout" template="/WEB-INF/layout/layout.jsp">
+        <put-attribute name="title" value="SivaLabs"/>
+        <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
     </definition>
 
-    <!-- Define a Tiles definition for the header -->
-    <definition name="header" template="/WEB-INF/views/header.jsp" extends="common.layout"/>
-    <!-- Add more page-specific or common definitions as needed -->
+    <definition name="home" extends="baseLayout">
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp"/>
+    </definition>
+
+    <definition name="addEmployee" extends="baseLayout">
+        <put-attribute name="body" value="/WEB-INF/views/add-employee.jsp"/>
+    </definition>
+
+    <definition name="editEmployee" extends="baseLayout">
+        <put-attribute name="body" value="/WEB-INF/views/edit-employee.jsp"/>
+    </definition>
+
+    <definition name="employeeList" extends="baseLayout">
+        <put-attribute name="body" value="/WEB-INF/views/employee-list.jsp"/>
+    </definition>
+
+
 </tiles-definitions>

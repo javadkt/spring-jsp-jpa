@@ -19,7 +19,7 @@ public class EmployeeController {
     @GetMapping("addEmployee")
     public String addEmp() {
 
-        return "AddEmployee";
+        return "addEmployee";
 
     }
 
@@ -38,7 +38,7 @@ public class EmployeeController {
     public String lodeEmployee(Model m) {
         m.addAttribute("employee", employeeServices.getAllEmp());
         m.addAttribute("title", "Employee List");
-        return "EmployeeList";
+        return "employeeList";
     }
 
 
@@ -52,7 +52,7 @@ public class EmployeeController {
         m.addAttribute("employee", emp);
         m.addAttribute("title", "Edit Employee");
 
-        return "EditEmployee";
+        return "editEmployee";
 
     }
 
