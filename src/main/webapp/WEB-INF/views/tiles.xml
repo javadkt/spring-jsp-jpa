@@ -1,19 +1,12 @@
+<!-- tiles.xml -->
+
 <tiles-definitions>
-    <definition name="base.definition" template="/WEB-INF/views/layout/default.jsp">
-        <put-attribute name="title" value="" />
-        <put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/views/layout/menu.jsp" />
-        <put-attribute name="body" value="" />
-        <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    <!-- Common layout definition -->
+    <definition name="common.layout" template="/WEB-INF/views/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/menu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp"/>
     </definition>
 
-    <definition name="addEmployee" extends="base.definition">
-        <put-attribute name="title" value="Add Employee" />
-        <put-attribute name="body" value="/WEB-INF/views/addEmployee.jsp" />
-    </definition>
-
-    <definition name="employeeListing" extends="base.definition">
-        <put-attribute name="title" value="Employee Listing" />
-        <put-attribute name="body" value="/WEB-INF/views/employeeListing.jsp" />
-    </definition>
+    <!-- Define more page-specific or common definitions as needed -->
 </tiles-definitions>

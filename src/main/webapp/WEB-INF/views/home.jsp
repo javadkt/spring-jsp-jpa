@@ -15,7 +15,7 @@
 <h2>${message}</h2>
 <div class="container-fluid mt-3">
     <a href="addEmployee" class="btn btn-primary"> Add Employee </a>
-    <a href="employeeReport" class="btn btn-primary"> List Employee </a>
+    <a href="employeeList" class="btn btn-primary"> List Employee </a>
 </div>
 </body>
 </html>

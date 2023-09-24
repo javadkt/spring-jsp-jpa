@@ -29,17 +29,16 @@ public class EmployeeController {
     public String insertEmployee(@ModelAttribute("insertEmployee") Employee emp) {
 
         employeeServices.addEmp(emp);
-        return "redirect:/employeeReport";
+        return "redirect:/employeeList";
     }
 
 
     //lode employee data
-    @GetMapping("employeeReport")
+    @GetMapping("employeeList")
     public String lodeEmployee(Model m) {
         m.addAttribute("employee", employeeServices.getAllEmp());
-        m.addAttribute("title", "Employee Report");
-
-        return "EmployeeReport";
+        m.addAttribute("title", "Employee List");
+        return "EmployeeList";
     }
 
 
@@ -62,7 +61,7 @@ public class EmployeeController {
     public String updateEmp(@ModelAttribute("updateEmployee") Employee emp) {
         employeeServices.updateEmp(emp);
 
-        return "redirect:/employeeReport";
+        return "redirect:/employeeList";
 
     }
 
@@ -72,7 +71,7 @@ public class EmployeeController {
         employeeServices.deleteEmployee(id);
 
 
-        return "redirect:/employeeReport";
+        return "redirect:/employeeList";
     }
 
 
