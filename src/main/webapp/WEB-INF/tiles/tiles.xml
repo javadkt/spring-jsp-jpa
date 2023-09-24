@@ -1,0 +1,16 @@
+<!-- tiles.xml -->
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- Common layout definition -->
+    <definition name="common.layout" template="/WEB-INF/views/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
+        <!-- Add attribute definitions for menu and footer if needed -->
+    </definition>
+
+    <!-- Define a Tiles definition for the header -->
+    <definition name="header" template="/WEB-INF/views/header.jsp" extends="common.layout"/>
+    <!-- Add more page-specific or common definitions as needed -->
+</tiles-definitions>

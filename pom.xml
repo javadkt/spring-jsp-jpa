@@ -30,6 +30,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-extras</artifactId>
+            <version>3.0.5</version>
+        </dependency>
+
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
@@ -55,12 +61,23 @@
             <version>1.4.200</version>
         </dependency>
 
-        <!-- Apache Tiles -->
+
+<!--
+        &lt;!&ndash; Apache Tiles Core &ndash;&gt;
         <dependency>
             <groupId>org.apache.tiles</groupId>
-            <artifactId>tiles-jsp</artifactId>
-            <version>3.0.8</version>
+            <artifactId>tiles-core</artifactId>
+            <version>3.0.8</version> &lt;!&ndash; Adjust the version according to your project's requirements &ndash;&gt;
         </dependency>
+
+        &lt;!&ndash; Apache Tiles API &ndash;&gt;
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-api</artifactId>
+            <version>3.0.8</version> &lt;!&ndash; Adjust the version according to your project's requirements &ndash;&gt;
+        </dependency>
+-->
+
 
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
