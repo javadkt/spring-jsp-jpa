@@ -13,7 +13,6 @@
         background-color: #2d2d63;
         color: white;
         padding: 10px 0;
-        /* background-color: #007bff!important; */
     }
 </style>
 

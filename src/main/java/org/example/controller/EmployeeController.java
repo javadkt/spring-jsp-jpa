@@ -31,21 +31,16 @@ public class EmployeeController {
         return "addEmployee";
     }
 
-/*    @PostMapping(value = "/insertEmployee")
-    public String insertEmployee(@RequestParam Map<String, String> formData) {
-        System.out.println(formData);
-        //employeeServices.addEmp(emp);
-        return "redirect:/employeeListGrid";
-    }*/
-
     @PostMapping(value = "/insertEmployee")
     public String insertEmployee(@ModelAttribute("insertEmployee") Employee emp) {
+        //validations here
         employeeServices.addEmp(emp);
         return "redirect:/employeeListGrid";
     }
 
     @PostMapping("/editEmployee/saveEditEmployee")
     public String saveEditEmployee(@ModelAttribute("saveEditEmployee") Employee emp) {
+        //validations here
         employeeServices.updateEmp(emp);
         return "redirect:/employeeListGrid";
 
@@ -79,15 +74,6 @@ public class EmployeeController {
         m.addAttribute("title", "Employee List");
         return "employeeListGrid";
     }
-
-/*
-    @PostMapping("/editEmployee/updateEmployee")
-    public String updateEmp(@ModelAttribute("updateEmployee") Employee emp) {
-        employeeServices.updateEmp(emp);
-        return "redirect:/employeeList";
-    }
-*/
-
 
     @GetMapping("/deleteEmployee/{id}")
     public String deleteEmployee(@PathVariable Long id) {

@@ -17,7 +17,8 @@
         </c:choose> Employee Form
     </h3>
 
-    <form class="mt-4" action="<c:if test="${mode == 'add'}">insertEmployee</c:if><c:if test="${mode == 'edit'}">saveEditEmployee</c:if>"
+    <form class="mt-4"
+          action="<c:if test="${mode == 'add'}">insertEmployee</c:if><c:if test="${mode == 'edit'}">saveEditEmployee</c:if>"
           method="post">
 
         <c:if test="${mode == 'edit'}">
@@ -61,10 +62,10 @@
                 <div class="form-group">
                     <label for="department">Department</label>
                     <select class="form-control" id="department" name="department" required>
-                        <option value="" selected disabled>Select</option>
-                        <option value="IT">IT</option>
-                        <option value="HR">HR</option>
-                        <option value="Finance">Finance</option>
+                        <option value="" disabled>Select</option>
+                        <option value="IT" ${employee.department eq 'IT' ? 'selected' : ''}>IT</option>
+                        <option value="HR" ${employee.department eq 'HR' ? 'selected' : ''}>HR</option>
+                        <option value="Finance" ${employee.department eq 'Finance' ? 'selected' : ''}>Finance</option>
                     </select>
                 </div>
             </div>
@@ -84,9 +85,13 @@
                 <div class="form-group">
                     <label for="manager">Manager</label>
                     <select class="form-control" id="manager" name="manager">
-                        <option value="" selected disabled>Select</option>
+                        <option value="">Select</option>
                         <c:forEach var="manager" items="${managers}">
-                            <option value="${manager.id}">
+                            <option value="${manager.id}"
+                                    <c:if test="${manager.id eq employee.manager.id}">
+                                        selected="selected"
+                                    </c:if>
+                            >
                                     ${manager.id} - ${manager.firstName} ${manager.lastName}
                             </option>
                         </c:forEach>
@@ -95,16 +100,6 @@
 
             </div>
         </div>
-
-        <%--     <div class="row">
-                 <div class="col">
-                     <div class="form-group">
-                         <label for="address">Address</label>
-                         <textarea class="form-control" id="address" name="address" rows="5"
-                                   placeholder="Enter Address"></textarea>
-                     </div>
-                 </div>
-             </div>--%>
 
         <a href="${pageContext.request.contextPath}/" class="btn btn-warning">Back</a>
         <button type="submit" class="btn btn-primary">Submit</button>

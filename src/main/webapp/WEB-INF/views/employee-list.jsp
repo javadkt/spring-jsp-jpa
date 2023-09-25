@@ -32,10 +32,10 @@
                     <td class="table-plus">${emp.id}</td>
                     <td>${emp.firstName}</td>
                     <td>${emp.department}</td>
-                   <%-- <td>${emp.salary}</td>--%>
+                        <%-- <td>${emp.salary}</td>--%>
                     <td>
                         <a href="employeeView/${emp.id}" class="btn btn-success">
-                            View <!-- "View" button with green color -->
+                            View
                         </a>
                     </td>
                     <td>
