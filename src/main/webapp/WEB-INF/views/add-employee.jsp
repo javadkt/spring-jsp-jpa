@@ -41,10 +41,9 @@
                 <div class="form-group">
                     <label for="department">Department</label>
                     <select class="form-control" id="department" name="department">
+                        <option value="IT">IT</option>
                         <option value="HR">HR</option>
                         <option value="Finance">Finance</option>
-                        <option value="IT">IT</option>
-                        <!-- Add more department options as needed -->
                     </select>
                 </div>
             </div>

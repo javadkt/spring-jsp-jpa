@@ -27,5 +27,12 @@
         <put-attribute name="body" value="/WEB-INF/views/employee-list.jsp"/>
     </definition>
 
+    <definition name="employeeView" extends="baseLayout">
+        <put-attribute name="body" value="/WEB-INF/views/employee-view.jsp"/>
+    </definition>
+
+    <definition name="employeeListGrid" extends="baseLayout">
+        <put-attribute name="body" value="/WEB-INF/views/employee-list-grid.jsp"/>
+    </definition>
 
 </tiles-definitions>

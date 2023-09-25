@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Serializable;
+
 @Controller
 @RequestMapping
 public class EmployeeController {
@@ -16,7 +18,6 @@ public class EmployeeController {
     @Autowired
     EmployeeServices employeeServices;
 
-    //lode add employee form
     @GetMapping("addEmployee")
     public String addEmp(Model m) {
         m.addAttribute("managers", employeeServices.getAllEmp());
@@ -24,17 +25,15 @@ public class EmployeeController {
 
     }
 
-
-    //save employee form
     @PostMapping(value = "/insertEmployee")
     public String insertEmployee(@ModelAttribute("insertEmployee") Employee emp) {
-
+        if (emp.getManager() == null || emp.getManager().isEmpty()) {
+            emp.setManager(null);
+        }
         employeeServices.addEmp(emp);
-        return "redirect:/employeeList";
+        return "redirect:/employeeListGrid";
     }
 
-
-    //lode employee data
     @GetMapping("employeeList")
     public String lodeEmployee(Model m) {
         m.addAttribute("employee", employeeServices.getAllEmp());
@@ -42,13 +41,27 @@ public class EmployeeController {
         return "employeeList";
     }
 
+    @GetMapping("/employeeView/{id}")
+    public String employeeView(@PathVariable(value = "id") Long id, Model m) {
 
-    //lode edit form
+        Employee emp = employeeServices.getById(id);
+        m.addAttribute("employee", emp);
+        m.addAttribute("title", "Employee View");
+        return "employeeView";
+
+    }
+
+    @GetMapping("employeeListGrid")
+    public String employeeListGrid(Model m) {
+        m.addAttribute("employee", employeeServices.getAllEmp());
+        m.addAttribute("title", "Employee List");
+        return "employeeListGrid";
+    }
 
     @GetMapping("/editEmployee/{id}")
     public String lodeEditForm(@PathVariable(value = "id") Long id, Model m) {
-        Employee emp = employeeServices.getById(id);
 
+        Employee emp = employeeServices.getById(id);
         System.out.println(emp);
         m.addAttribute("employee", emp);
         m.addAttribute("title", "Edit Employee");
@@ -60,17 +73,17 @@ public class EmployeeController {
 
     @PostMapping("/editEmployee/updateEmployee")
     public String updateEmp(@ModelAttribute("updateEmployee") Employee emp) {
+
         employeeServices.updateEmp(emp);
 
         return "redirect:/employeeList";
-
     }
 
 
     @GetMapping("/deleteEmployee/{id}")
     public String deleteEmployee(@PathVariable Long id) {
-        employeeServices.deleteEmployee(id);
 
+        employeeServices.deleteEmployee(id);
 
         return "redirect:/employeeList";
     }

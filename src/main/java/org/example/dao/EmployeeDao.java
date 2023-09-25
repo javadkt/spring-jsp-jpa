@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -12,50 +13,45 @@ import org.springframework.stereotype.Component;
 @Component
 public class EmployeeDao {
 
-	
-	@Autowired
-	HibernateTemplate hiberneteTemplate;
-	
-	
-	//add employee
-	@Transactional
-	public void addEmployee(Employee emp)
-	{
-		hiberneteTemplate.save(emp);
-	}
-	
-	
-	//get all employee
-	public List<Employee> getAllEmp()
-	{
-		return hiberneteTemplate.loadAll(Employee.class);
-	}
-	
-	//get employee by id
-	@Transactional
-	public Employee getEmpById(Long id)
-	{
-		
-		
-		Employee emp= hiberneteTemplate.get(Employee.class, id);
-		return emp;
-	}
-	
-	
-	//update employee
-	
-	@Transactional
-	public void updateEmp(Employee emp)
-	{
-		hiberneteTemplate.update(emp);
-	}
-	
-	
-	//delete employee
-	@Transactional
-	public void deleteEmp(Long id)
-	{
-		hiberneteTemplate.delete(hiberneteTemplate.load(Employee.class, id));
-	}
-	
+
+    @Autowired
+    HibernateTemplate hibernateTemplate;
+
+
+    //add employee
+    @Transactional
+    public Serializable addEmployee(Employee emp) {
+        return hibernateTemplate.save(emp);
+    }
+
+
+    //get all employee
+    public List<Employee> getAllEmp() {
+        return hibernateTemplate.loadAll(Employee.class);
+    }
+
+    //get employee by id
+    @Transactional
+    public Employee getEmpById(Long id) {
+
+
+        Employee emp = hibernateTemplate.get(Employee.class, id);
+        return emp;
+    }
+
+
+    //update employee
+
+    @Transactional
+    public void updateEmp(Employee emp) {
+        hibernateTemplate.update(emp);
+    }
+
+
+    //delete employee
+    @Transactional
+    public void deleteEmp(Long id) {
+        hibernateTemplate.delete(hibernateTemplate.load(Employee.class, id));
+    }
+
 }

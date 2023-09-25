@@ -27,7 +27,14 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="name">Name</label> <input type="text"
+                    <label for="name">First Name</label> <input type="text"
+                                                          value="${employee.firstName}" class="form-control" id="name"
+                                                          name="name" placeholder="Enter Name">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="name">Last Name</label> <input type="text"
                                                           value="${employee.firstName}" class="form-control" id="name"
                                                           name="name" placeholder="Enter Name">
                 </div>
