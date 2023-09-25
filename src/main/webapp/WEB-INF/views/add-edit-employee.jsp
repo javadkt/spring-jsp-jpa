@@ -10,14 +10,14 @@
 
 <div class="container mt-3">
 
-    <h1>
+    <h3>
         <c:choose>
             <c:when test="${mode == 'add'}">Add</c:when>
             <c:otherwise>Edit</c:otherwise>
         </c:choose> Employee Form
-    </h1>
+    </h3>
 
-    <form action="<c:if test="${mode == 'add'}">insertEmployee</c:if><c:if test="${mode == 'edit'}">saveEditEmployee</c:if>"
+    <form class="mt-4" action="<c:if test="${mode == 'add'}">insertEmployee</c:if><c:if test="${mode == 'edit'}">saveEditEmployee</c:if>"
           method="post">
 
         <c:if test="${mode == 'edit'}">
@@ -44,7 +44,7 @@
                 <div class="form-group">
                     <label for="lastName">Last Name</label> <!-- Added Second Name field -->
                     <input type="text" class="form-control" id="lastName" name="lastName"
-                           placeholder="Enter Last Name" value="${employee.lastName}">
+                           placeholder="Enter Last Name" required value="${employee.lastName}">
                 </div>
             </div>
         </div>
@@ -53,13 +53,15 @@
             <div class="col">
                 <div class="form-group">
                     <label for="dateOfBirth">Date of Birth</label>
-                    <input type="date" class="form-control" id="dateOfBirth" name="dob" value="${employee.dob}">
+                    <input type="date" class="form-control" id="dateOfBirth" name="dob" required
+                           value="${employee.dob}">
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="department">Department</label>
-                    <select class="form-control" id="department" name="department">
+                    <select class="form-control" id="department" name="department" required>
+                        <option value="" selected disabled>Select</option>
                         <option value="IT">IT</option>
                         <option value="HR">HR</option>
                         <option value="Finance">Finance</option>
@@ -72,7 +74,8 @@
             <div class="col">
                 <div class="form-group">
                     <label for="salary">Salary</label>
-                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary(AED)"
+                    <input type="number" class="form-control" id="salary" name="salary" required
+                           placeholder="Enter Salary(AED)"
                            value="${employee.salary}">
                 </div>
             </div>
@@ -81,7 +84,7 @@
                 <div class="form-group">
                     <label for="manager">Manager</label>
                     <select class="form-control" id="manager" name="manager">
-                        <option value="">Select</option> <!-- Add an empty default option -->
+                        <option value="" selected disabled>Select</option>
                         <c:forEach var="manager" items="${managers}">
                             <option value="${manager.id}">
                                     ${manager.id} - ${manager.firstName} ${manager.lastName}

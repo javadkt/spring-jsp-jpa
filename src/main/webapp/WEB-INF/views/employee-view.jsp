@@ -39,9 +39,9 @@
                     <p>ID: ${employee.id}</p>
                     <p>Date of Birth: ${employee.dob}</p>
                     <p>Department: ${employee.department}</p>
-                    <p>Salary: ${employee.salary}</p>
-                   <%-- <p>
-                        Manager: ${employee.manager != null ? employee.manager.firstName + ' ' + employee.manager.lastName : 'N/A'}</p>--%>
+                    <p>Salary: ${employee.salary} AED</p>
+                    <p>
+                        Manager: ${managerName != null ? managerName : 'N/A'}</p>
                 </div>
             </div>
         </div>

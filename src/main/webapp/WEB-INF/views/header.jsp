@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Employee App</title> <!-- Add the title here -->
+  <h2>Employee App</h2> <!-- Add the title here -->
   <!-- Add your CSS and other head elements here -->
 </head>
 <body>

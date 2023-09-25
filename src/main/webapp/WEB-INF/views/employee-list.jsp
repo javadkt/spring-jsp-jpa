@@ -11,8 +11,8 @@
 
 <div class="container mt-3">
 
-    <h1>Employee List</h1>
-    <a href="addEmployee" class="btn btn-primary"> Add Employee </a>
+    <h3>Employee List</h3>
+    <a href="addEmployee" class="btn btn-primary mt-3"> Add Employee </a>
     <div class="row mt-3">
 
         <table class="table table-hover">

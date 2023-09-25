@@ -9,8 +9,9 @@
 <body>
 
 <div class="container mt-3">
-    <h1>Employees</h1>
+    <h3>Employees</h3>
     <a href="addEmployee" class="btn btn-primary">Add Employee</a>
+    <a href="employeeList" class="btn btn-primary">View All</a>
     <div class="row mt-3">
         <c:forEach var="emp" items="${employee}">
             <div class="col-md-4 mb-4">

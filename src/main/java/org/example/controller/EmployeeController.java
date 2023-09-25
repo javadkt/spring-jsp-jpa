@@ -62,6 +62,11 @@ public class EmployeeController {
     public String employeeView(@PathVariable(value = "id") Long id, Model m) {
 
         Employee emp = employeeServices.getById(id);
+        if (emp.getManager() != null) {
+            Employee manager = employeeServices.getById(emp.getManager().getId());
+            String managerName = manager.getFirstName() + " " + manager.getLastName();
+            m.addAttribute("managerName", managerName);
+        }
         m.addAttribute("employee", emp);
         m.addAttribute("title", "Employee View");
         return "employeeView";
