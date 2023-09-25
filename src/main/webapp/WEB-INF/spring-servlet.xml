@@ -21,7 +21,7 @@
 
 
     <!-- View Resolver for Tiles -->
-    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" />
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
 
     <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="definitions">
@@ -32,24 +32,31 @@
     </bean>
 
 
-<!--    &lt;!&ndash; View Resolver &ndash;&gt;
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>-->
+    <!--    &lt;!&ndash; View Resolver &ndash;&gt;
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="prefix" value="/WEB-INF/views/"/>
+            <property name="suffix" value=".jsp"/>
+        </bean>-->
 
 
     <!-- data source -->
 
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
+        <!-- For H2 Database-->
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:mem:employee;DB_CLOSE_DELAY=-1"/>
+        <property name="username" value="sa"/>
+        <property name="password" value=""/>
+        <!--     <property name="url" value="jdbc:h2:mem:testdb;INIT=RUNSCRIPT FROM 'classpath:schema.sql'"/>-->
 
-        <property name="driverClassName"
-                  value="com.mysql.jdbc.Driver"/>
-        <property name="url"
-                  value="jdbc:mysql://localhost:3306/employee"/>
-        <property name="username" value="root"/>
-        <property name="password" value="Password@123"/>
 
+        <!-- For MySQL Database-->
+        <!-- <property name="driverClassName"
+                       value="com.mysql.jdbc.Driver"/>
+             <property name="url"
+                       value="jdbc:mysql://localhost:3306/employee"/>
+             <property name="username" value="root"/>
+             <property name="password" value="Password@123"/>-->
     </bean>
 
     <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
@@ -61,7 +68,14 @@
         <!-- hibernate properties -->
         <property name="hibernateProperties">
             <props>
+
+                <!-- For H2 Database-->
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+
+                <!-- For MySQL Database-->
+                <!--
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                -->
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>

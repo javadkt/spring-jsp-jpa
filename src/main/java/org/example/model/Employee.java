@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @Data
 @ToString
-@Entity
+@Entity(name = "EMPLOYEE")
 public class Employee implements Serializable {
 
     @Id
