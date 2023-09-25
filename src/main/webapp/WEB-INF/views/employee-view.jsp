@@ -35,12 +35,12 @@
             <div class="employee-card">
                 <i class="fa-solid fa-user fa-5x mt-5"></i>
                 <div class="card-body info-card">
-
+                    <h3>${employee.firstName} ${employee.lastName}</h3>
                     <p>ID: ${employee.id}</p>
                     <p>Date of Birth: ${employee.dob}</p>
                     <p>Department: ${employee.department}</p>
                     <p>Salary: ${employee.salary}</p>
-               <%--     <p>
+                   <%-- <p>
                         Manager: ${employee.manager != null ? employee.manager.firstName + ' ' + employee.manager.lastName : 'N/A'}</p>--%>
                 </div>
             </div>

@@ -10,22 +10,41 @@
 
 <div class="container mt-3">
 
-    <h1>Add Employee Form</h1>
-    <form action="insertEmployee" method="post">
+    <h1>
+        <c:choose>
+            <c:when test="${mode == 'add'}">Add</c:when>
+            <c:otherwise>Edit</c:otherwise>
+        </c:choose> Employee Form
+    </h1>
+
+    <form action="<c:if test="${mode == 'add'}">insertEmployee</c:if><c:if test="${mode == 'edit'}">saveEditEmployee</c:if>"
+          method="post">
+
+        <c:if test="${mode == 'edit'}">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="id">Id</label>
+                        <input type="text" value="${employee.id}" class="form-control" id="id" name="id"
+                               readonly="readonly">
+                    </div>
+                </div>
+            </div>
+        </c:if>
 
         <div class="row">
             <div class="col">
                 <div class="form-group">
                     <label for="firstName">First Name</label>
                     <input type="text" class="form-control" id="firstName" name="firstName"
-                           placeholder="Enter First Name" required>
+                           placeholder="Enter First Name" required value="${employee.firstName}">
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="lastName">Last Name</label> <!-- Added Second Name field -->
                     <input type="text" class="form-control" id="lastName" name="lastName"
-                           placeholder="Enter Last Name">
+                           placeholder="Enter Last Name" value="${employee.lastName}">
                 </div>
             </div>
         </div>
@@ -34,7 +53,7 @@
             <div class="col">
                 <div class="form-group">
                     <label for="dateOfBirth">Date of Birth</label>
-                    <input type="date" class="form-control" id="dateOfBirth" name="dob">
+                    <input type="date" class="form-control" id="dateOfBirth" name="dob" value="${employee.dob}">
                 </div>
             </div>
             <div class="col">
@@ -53,7 +72,7 @@
             <div class="col">
                 <div class="form-group">
                     <label for="salary">Salary</label>
-                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary(AED)">
+                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary(AED)" value="${employee.salary}">
                 </div>
             </div>
 

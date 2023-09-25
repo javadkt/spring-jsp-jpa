@@ -16,11 +16,11 @@
     </definition>
 
     <definition name="addEmployee" extends="baseLayout">
-        <put-attribute name="body" value="/WEB-INF/views/add-employee.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/add-edit-employee.jsp"/>
     </definition>
 
     <definition name="editEmployee" extends="baseLayout">
-        <put-attribute name="body" value="/WEB-INF/views/edit-employee.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/add-edit-employee.jsp"/>
     </definition>
 
     <definition name="employeeList" extends="baseLayout">

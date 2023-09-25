@@ -34,7 +34,6 @@ public class EmployeeDao {
     @Transactional
     public Employee getEmpById(Long id) {
 
-
         Employee emp = hibernateTemplate.get(Employee.class, id);
         return emp;
     }

@@ -21,8 +21,17 @@ public class EmployeeController {
     @GetMapping("addEmployee")
     public String addEmp(Model m) {
         m.addAttribute("managers", employeeServices.getAllEmp());
+        m.addAttribute("mode", "add");
         return "addEmployee";
 
+    }
+
+    @GetMapping("/editEmployee/{id}")
+    public String updateEmp(@PathVariable Long id, Model m) {
+        m.addAttribute("employee", employeeServices.getById(id));
+        m.addAttribute("managers", employeeServices.getAllEmp());
+        m.addAttribute("mode", "edit");
+        return "addEmployee";
     }
 
     @PostMapping(value = "/insertEmployee")
@@ -32,6 +41,17 @@ public class EmployeeController {
         }
         employeeServices.addEmp(emp);
         return "redirect:/employeeListGrid";
+    }
+
+    @PostMapping("/editEmployee/saveEditEmployee")
+    public String saveEditEmployee(@ModelAttribute("saveEditEmployee") Employee emp) {
+        if (emp.getManager() == null || emp.getManager().isEmpty()) {
+            emp.setManager(null);
+        }
+
+        employeeServices.updateEmp(emp);
+        return "redirect:/employeeListGrid";
+
     }
 
     @GetMapping("employeeList")
@@ -58,26 +78,13 @@ public class EmployeeController {
         return "employeeListGrid";
     }
 
-    @GetMapping("/editEmployee/{id}")
-    public String lodeEditForm(@PathVariable(value = "id") Long id, Model m) {
-
-        Employee emp = employeeServices.getById(id);
-        System.out.println(emp);
-        m.addAttribute("employee", emp);
-        m.addAttribute("title", "Edit Employee");
-
-        return "editEmployee";
-
-    }
-
-
+/*
     @PostMapping("/editEmployee/updateEmployee")
     public String updateEmp(@ModelAttribute("updateEmployee") Employee emp) {
-
         employeeServices.updateEmp(emp);
-
         return "redirect:/employeeList";
     }
+*/
 
 
     @GetMapping("/deleteEmployee/{id}")
