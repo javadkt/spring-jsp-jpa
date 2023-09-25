@@ -3,12 +3,9 @@ package org.example.controller;
 import org.example.model.Employee;
 import org.example.service.EmployeeServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.Serializable;
 
 @Controller
 @RequestMapping
@@ -34,21 +31,21 @@ public class EmployeeController {
         return "addEmployee";
     }
 
+/*    @PostMapping(value = "/insertEmployee")
+    public String insertEmployee(@RequestParam Map<String, String> formData) {
+        System.out.println(formData);
+        //employeeServices.addEmp(emp);
+        return "redirect:/employeeListGrid";
+    }*/
+
     @PostMapping(value = "/insertEmployee")
     public String insertEmployee(@ModelAttribute("insertEmployee") Employee emp) {
-        if (emp.getManager() == null || emp.getManager().isEmpty()) {
-            emp.setManager(null);
-        }
         employeeServices.addEmp(emp);
         return "redirect:/employeeListGrid";
     }
 
     @PostMapping("/editEmployee/saveEditEmployee")
     public String saveEditEmployee(@ModelAttribute("saveEditEmployee") Employee emp) {
-        if (emp.getManager() == null || emp.getManager().isEmpty()) {
-            emp.setManager(null);
-        }
-
         employeeServices.updateEmp(emp);
         return "redirect:/employeeListGrid";
 

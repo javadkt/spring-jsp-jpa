@@ -1,10 +1,9 @@
 package org.example.model;
 
-import javax.persistence.*;
-
 import lombok.Data;
 import lombok.ToString;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
@@ -20,6 +19,7 @@ public class Employee implements Serializable {
     private String dob;
     private String department;
     private Double salary;
-    private String manager;
+    @ManyToOne
+    private Employee manager;
 
 }

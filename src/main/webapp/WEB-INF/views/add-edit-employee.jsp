@@ -72,7 +72,8 @@
             <div class="col">
                 <div class="form-group">
                     <label for="salary">Salary</label>
-                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary(AED)" value="${employee.salary}">
+                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter Salary(AED)"
+                           value="${employee.salary}">
                 </div>
             </div>
 
