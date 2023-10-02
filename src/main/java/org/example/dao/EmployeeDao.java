@@ -1,6 +1,5 @@
 package org.example.dao;
 
-import org.example.model.Audit;
 import org.example.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -19,15 +18,7 @@ public class EmployeeDao {
     //add employee
     @Transactional
     public Serializable addEmployee(Employee emp) {
-        addAudit(emp);
         return hibernateTemplate.save(emp);
-    }
-
-    @Transactional
-    public void addAudit(Employee employee) {
-        Audit audit = new Audit();
-        audit.setName(employee.getFirstName());
-        hibernateTemplate.persist(employee);
     }
 
     //get all employee

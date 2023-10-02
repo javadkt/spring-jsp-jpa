@@ -84,7 +84,6 @@
         <!-- annotated classes -->
         <property name="annotatedClasses">
             <list>
-                <value>org.example.model.Audit</value>
                 <value>org.example.model.Employee</value>
             </list>
         </property>
